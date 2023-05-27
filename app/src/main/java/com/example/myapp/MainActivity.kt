@@ -24,39 +24,12 @@ import com.example.myapp.ui.theme.MyAppTheme
 
 class MainActivity : ComponentActivity() {
     private lateinit var binding: MainLayoutBinding
-    private val mainVm by viewModels<MainViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (mainVm.click > 0) {
-            binding.textView.text = mainVm.click.toString()
-        }
-        binding.button.setOnClickListener {
-            mainVm.click+=1
-            binding.textView.text = mainVm.click.toString()
-        }
 
-        binding.sendBtn.setOnClickListener {
-            val textData = binding.textField.text.toString()
-            val explicitIntent = Intent(applicationContext, SecondActivity::class.java)
-            explicitIntent.putExtra("SavedData", textData)
-            startActivity(explicitIntent)
-        }
-
-        val adapter = FirstAdapter(createContacts())
-        binding.recyclerView.layoutManager = LinearLayoutManager(applicationContext)
-        binding.recyclerView.adapter = adapter
     }
-
-    private fun createContacts() : List<Contact> = buildList  {
-        for (i in 0..500) {
-            val newContact = Contact("$i", "$i")
-            add(newContact)
-        }
-    }
-
 }
 
