@@ -51,6 +51,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
 
+    implementation "androidx.fragment:fragment-ktx:1.5.7"
+
     // Kotlin - View Model
     def activity_version = "1.7.2"
     implementation "androidx.activity:activity-ktx:$activity_version"
