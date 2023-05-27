@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:textStyle="bold"
+        android:text="Jan Kowalski"
+        android:id="@+id/nameTv"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:text="123458374"
+        android:id="@+id/numberTv"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        />
+
+</LinearLayout>

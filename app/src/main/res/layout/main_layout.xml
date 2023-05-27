@@ -83,10 +83,27 @@
         android:layout_width="240dp"
         android:layout_height="60dp"
         android:layout_margin="30dp"
+        android:background="@color/purple_200"
         android:text="Wyślij!"
         android:textSize="20dp"
-        android:background="@color/purple_200"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textField" />
+
+    <View
+        android:id="@+id/horizontalLine1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/sendBtn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalLine1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

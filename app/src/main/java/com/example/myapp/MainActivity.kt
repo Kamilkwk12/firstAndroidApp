@@ -18,12 +18,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapp.databinding.MainLayoutBinding
 import com.example.myapp.ui.theme.MyAppTheme
 
 class MainActivity : ComponentActivity() {
     private lateinit var binding: MainLayoutBinding
     private val mainVm by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainLayoutBinding.inflate(layoutInflater)
@@ -44,8 +46,17 @@ class MainActivity : ComponentActivity() {
             startActivity(explicitIntent)
         }
 
+        val adapter = FirstAdapter(createContacts())
+        binding.recyclerView.layoutManager = LinearLayoutManager(applicationContext)
+        binding.recyclerView.adapter = adapter
     }
 
+    private fun createContacts() : List<Contact> = buildList  {
+        for (i in 0..500) {
+            val newContact = Contact("$i", "$i")
+            add(newContact)
+        }
+    }
 
 }
 
