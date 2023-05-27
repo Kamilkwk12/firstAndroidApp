@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.myapp.databinding.FragmentFirstBinding
 import com.example.myapp.databinding.FragmentSecondBinding
 
@@ -28,7 +29,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.firstBtn.setOnLongClickListener {
-            Toast.makeText(requireContext(), "Przycisk 1 - długie naciśnięcie", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
             true
         }
     }

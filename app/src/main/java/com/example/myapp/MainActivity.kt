@@ -20,24 +20,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.fragment.app.commit
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapp.databinding.MainLayoutBinding
 import com.example.myapp.ui.theme.MyAppTheme
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainLayoutBinding
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val firstFragment = FirstFragment()
-        val secondFragment = SecondFragment()
-        supportFragmentManager.commit {
-            addToBackStack(null)
-            add(R.id.firstContainer, firstFragment, null )
-            add(R.id.secondContainer, secondFragment, null )
-        }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
     }
 }
 
